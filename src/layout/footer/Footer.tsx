@@ -1,59 +1,42 @@
 import React from 'react';
-import styled from "styled-components";
 import {Icon} from "../../components/icon/Icon";
 import {FlexWrapper} from "../../components/FlexWrapper";
+import {S} from "../footer/Footer_Styles"
 
-export const Footer = () => {
+const socialItemData = [
+    {
+        iconId:"instagram",
+    },
+        {
+        iconId:"telegram",
+    },
+        {
+        iconId:"vk",
+    },
+        {
+        iconId:"linkedin",
+    },
+
+]
+
+export const Footer:React.FC = () => {
     return (
-        <StyledFooter>
+        <S.Footer>
             <FlexWrapper direction={"column"} align={"center"}>
-            <Name>Victoria</Name>
-            <SocialList>
-                <SocialItem>
-                    <SocialLink>
-                        <Icon height={"21px"} width={"21px"} viewBox={"0 0 21px 21px"} iconId={"instagram"}/>
-                    </SocialLink>
-                </SocialItem>
-                <SocialItem>
-                    <SocialLink>
-                        <Icon height={"21px"} width={"21px"} viewBox={"0 0 21px 21px"} iconId={"telegram"}/>
-                    </SocialLink>
-                </SocialItem>
-                <SocialItem>
-                    <SocialLink>
-                        <Icon height={"21px"} width={"21px"} viewBox={"0  0 21px 21px"} iconId={"vk"}/>
-                    </SocialLink>
-                </SocialItem>
-                <SocialItem>
-                    <SocialLink>
-                        <Icon height={"21px"} width={"21px"} viewBox={"0  0 21px 21px"} iconId={"linkedin"}/>
-                    </SocialLink>
-                </SocialItem>
+            <S.Name>Victoria</S.Name>
+            <S.SocialList>
 
-            </SocialList>
-            <Copyright>© 2024 Victoria Stognieva, All Rights Reserved.</Copyright>
+                {socialItemData.map((s,index)=> {
+                    return (
+                        <S.SocialLink key={index}>
+                        <Icon height={"21px"} width={"21px"} viewBox={"0 0 21px 21px"} iconId={s.iconId}/>
+                    </S.SocialLink>
+                    )}
+                )}
+            </S.SocialList>
+            <S.Copyright>© 2024 Victoria Stognieva, All Rights Reserved.</S.Copyright>
         </FlexWrapper>
-        </StyledFooter>
+        </S.Footer>
     );
 };
 
-const StyledFooter = styled.footer`
-  background-color: #ffd8a5;
-  min-height: 20vh;
-`
-const Name = styled.span`
-    
-`
-const SocialList = styled.ul`
-    display: flex;
-   gap: 30px;
-`
-const SocialItem = styled.li`
-    
-`
-const SocialLink = styled.a`
-    
-`
-const Copyright = styled.small`
-    
-`

@@ -4,15 +4,21 @@ import {SectionTitle} from "../../../components/SectionTitle";
 import {Icon} from "../../../components/icon/Icon";
 import {Slider} from "../../../components/slider/Slider";
 import {FlexWrapper} from "../../../components/FlexWrapper";
+import {Container} from "../../../components/Container";
+import {S} from "../skills/Skills_Styles"
 
-export const Testimony = () => {
+export const Testimony: React.FC = () => {
     return (
         <StyledTestimony>
-            <SectionTitle>Testimony</SectionTitle>
-            <FlexWrapper direction={"column"} align={"center"}>
-                <Icon iconId={"quota"}/>
-                <Slider/>
-            </FlexWrapper>
+            <Container>
+                <SectionTitle>Testimony</SectionTitle>
+                <FlexWrapper direction={"column"} align={"center"}>
+                    <S.IconWrapper>
+                        <Icon iconId={"quota"}/>
+                    </S.IconWrapper>
+                    <Slider/>
+                </FlexWrapper>
+            </Container>
         </StyledTestimony>
     );
 };
@@ -20,4 +26,8 @@ export const Testimony = () => {
 const StyledTestimony = styled.section `
   min-height: 50vh;
   background-color: #aeb9ff;
+  
+  ${S.IconWrapper} {
+    margin: 28px 0 72px;
+  }
 `
